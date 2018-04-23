@@ -25,6 +25,10 @@
     "@angular/router": "5.x.x",
     "@angular/material": "5.x.x",
     "@angular/cdk": "5.x.x",
+    "@scienceroot/design": "1.x.x",
+    "@scienceroot/security": "1.x.x",
+    "@scienceroot/user": "2.x.x",
+    "@scienceroot/wallet": "2.x.x",
     "core-js": "2.x.x",
     "rxjs": "5.x.x",
     "zone.js": "0.x.x"
