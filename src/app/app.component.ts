@@ -3,28 +3,51 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <!--The content below is only a placeholder and can be replaced.-->
-    <div style="text-align:center">
-      <h1>
-        Welcome to {{title}}!
-      </h1>
-      <img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+    <div  fxLayout="row"
+          class="menu">
+      <div  fxFlex="64px"
+            class="menu-item logo-container">
+        <img src="" alt="" />
+      </div>
+      <div  class="menu-item"
+            fxFlex="">
+        <div  fxLayout="row"
+              fxLayoutAlign="end center">
+          <div fxFlex="150px">
+            <scr-user-details-link>
+            </scr-user-details-link>
+          </div>
+        </div>
+      </div>
     </div>
-    <h2>Here are some links to help you start: </h2>
-    <ul>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-      </li>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-      </li>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-      </li>
-    </ul>
-    
+    <div style="padding: 24px">
+      <div  fxLayout="row"
+            fxLayoutAlign="center">
+        <div  fxFlex="90%"
+              fxFlex.lt-md="100%"
+              fxFlex.lt-lg="90%"
+              fxFlex.xl="75%">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
   `,
-  styles: []
+  styles: [`
+    .menu {
+      padding: 0 24px;
+      height: 64px;
+      background-color: #B1B7C1;
+    }
+
+    .menu .menu-item.logo-container {
+      padding: 8px 0;
+    }
+
+    .menu .menu-item.logo-container img {
+      height: 48px;
+      width: 48px;
+    }
+  `]
 })
 export class AppComponent {
   title = 'app';
