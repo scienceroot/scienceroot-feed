@@ -37,7 +37,13 @@ import {ScrActiveUserService, ScrUser} from '@scienceroot/user';
 
     .textarea-container textarea {
       width: 100%;
-      min-height: 250px;
+      height: 50px;
+      transition: height 200ms ease-out;
+    }
+
+    .textarea-container .mat-focused  textarea {
+      height: 150px;
+      transition: height 200ms ease-in;
     }
   `]
 })

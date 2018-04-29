@@ -17,7 +17,7 @@ import {ScrPost} from '../core/post.model';
 
     <ng-template #list>
       <div>
-        <ng-container *ngFor="let post of posts">
+        <ng-container *ngFor="let post of posts.reverse()">
           <scr-post-list-item [post]="post">
           </scr-post-list-item>
           <mat-divider></mat-divider>
