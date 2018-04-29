@@ -9,7 +9,10 @@ import {ScrAuthenticationGuard} from '@scienceroot/security';
   imports: [
     CommonModule,
     RouterModule.forChild([
-      {path: 'posts', component: PostComponent, canActivate: [ScrAuthenticationGuard]}
+      {
+        path: 'posts',
+        component: PostComponent,
+        canActivate: [ScrAuthenticationGuard]}
     ]),
     ScrPostCreateModule
   ],

@@ -31,6 +31,7 @@
     "@scienceroot/user": "2.x.x",
     "@scienceroot/wallet": "2.x.x",
     "core-js": "2.x.x",
+    "fsevents": "^1.2.3",
     "rxjs": "5.x.x",
     "zone.js": "0.x.x"
   },
