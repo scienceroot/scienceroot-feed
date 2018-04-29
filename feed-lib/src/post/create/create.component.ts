@@ -1,7 +1,6 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ScrPostService} from '../core/post.service';
 import {ScrPost} from '../core/post.model';
-import {ScrActiveUserService, ScrUser} from '@scienceroot/user';
 
 @Component({
   selector: 'scr-post-create',
@@ -47,20 +46,21 @@ import {ScrActiveUserService, ScrUser} from '@scienceroot/user';
     }
   `]
 })
-export class ScrPostCreateComponent {
+export class ScrPostCreateComponent implements OnInit {
 
+  @Input() activeUser: any;
   @Output() onSave: EventEmitter<ScrPost> = new EventEmitter();
 
   public post: ScrPost;
   public error: string | null;
 
-  private readonly _activeUser: ScrUser;
-
   constructor(
     private _postService: ScrPostService,
-    private _activeUserService: ScrActiveUserService
   ) {
-    this._activeUser = this._activeUserService.get();
+
+  }
+
+  ngOnInit(): void {
     this._initPost();
   }
 
@@ -82,6 +82,6 @@ export class ScrPostCreateComponent {
   }
 
   private _initPost() {
-    this.post = new ScrPost(this._activeUser);
+    this.post = new ScrPost(this.activeUser);
   }
 }

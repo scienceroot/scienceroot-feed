@@ -1,14 +1,14 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ScrPostService} from '../../post/core/post.service';
 import {ScrPost} from '../../post/core/post.model';
-import {ScrActiveUserService, ScrUser} from '@scienceroot/user';
 
 @Component({
   selector: 'scr-feed-user',
   template: `
     <div>
       <ng-container *ngIf="userId === activeUser.uid">
-        <scr-post-create (onSave)="onPostSaved($event)">
+        <scr-post-create  [activeUser]="activeUser"
+                          (onSave)="onPostSaved($event)">
         </scr-post-create>
       </ng-container>
     </div>
@@ -16,7 +16,8 @@ import {ScrActiveUserService, ScrUser} from '@scienceroot/user';
       <scr-loading [waitFor]="postsReq">
         <div onFinish>
           <ng-container *ngIf="!!posts">
-            <scr-post-list [posts]="posts">
+            <scr-post-list  [posts]="posts"
+                            [activeUserId]="activeUser.uid">
             </scr-post-list>
           </ng-container>
         </div>
@@ -30,17 +31,13 @@ import {ScrActiveUserService, ScrUser} from '@scienceroot/user';
 export class ScrFeedUserComponent implements OnInit {
 
   @Input() userId: string;
+  @Input() activeUser: any;
 
-  public activeUser: ScrUser;
 
   public postsReq: Promise<ScrPost[]>;
   public posts: ScrPost[];
 
-  constructor(
-    private _postService: ScrPostService,
-    private _activeUserService: ScrActiveUserService
-  ) {
-    this.activeUser = this._activeUserService.get();
+  constructor(private _postService: ScrPostService) {
   }
 
   ngOnInit(): void {

@@ -20,6 +20,7 @@ import {ScrPostService} from '../core/post.service';
       <div>
         <ng-container *ngFor="let post of posts.reverse()">
           <scr-post-list-item [post]="post"
+                              [activeUserId]="activeUserId"
                               (onDelete)="onDelete($event)">
           </scr-post-list-item>
           <mat-divider></mat-divider>
@@ -34,6 +35,7 @@ import {ScrPostService} from '../core/post.service';
 export class ScrPostListComponent {
 
   @Input() posts: ScrPost[];
+  @Input() activeUserId: string;
 
   constructor(private _postService: ScrPostService) {
   }

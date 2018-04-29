@@ -1,4 +1,3 @@
-import {ScrUser} from '@scienceroot/user';
 
 export class ScrPost {
 
@@ -8,7 +7,7 @@ export class ScrPost {
 
   public static fromObject(obj: any): ScrPost {
     return new ScrPost(
-      ScrUser.fromObj(obj.creator),
+      obj.creator,
       obj.id,
       obj.content,
       obj.createdDate
@@ -18,7 +17,7 @@ export class ScrPost {
   public contentAsHtml: string;
 
   constructor(
-    public creator: ScrUser,
+    public creator: any,
     public id?: string,
     public content?: string,
     public createdDate?: Date

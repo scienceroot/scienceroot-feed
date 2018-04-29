@@ -5,7 +5,6 @@ import {MatButtonModule, MatInputModule} from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {ScrPostCoreModule} from '../core/core.module';
 import {FormsModule} from '@angular/forms';
-import {ScrActiveUserModule} from '@scienceroot/user';
 
 export * from './create.component';
 
@@ -16,7 +15,6 @@ export * from './create.component';
     FlexLayoutModule,
     MatInputModule,
     MatButtonModule,
-    ScrActiveUserModule,
     ScrPostCoreModule
   ],
   declarations: [

@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {ScrPost} from '../../core/post.model';
-import {ScrActiveUserService, ScrUser} from '@scienceroot/user';
 
 @Component({
   selector: 'scr-post-list-item',
@@ -18,7 +17,7 @@ import {ScrActiveUserService, ScrUser} from '@scienceroot/user';
           </a>
         </div>
         <div fxFlex="100px">
-          <ng-container *ngIf="post.creator.uid === activeUser.uid">
+          <ng-container *ngIf="post.creator.uid === activeUserId">
             <button mat-button=""
                     color="accent"
                     (click)="deletePost()">
@@ -41,14 +40,13 @@ import {ScrActiveUserService, ScrUser} from '@scienceroot/user';
 })
 export class ScrPostListItemComponent {
 
+  @Input() activeUserId: string;
   @Input() post: ScrPost;
 
   @Output() onDelete: EventEmitter<ScrPost> = new EventEmitter();
 
-  public activeUser: ScrUser;
+  constructor() {
 
-  constructor(private _activeUserService: ScrActiveUserService) {
-    this.activeUser = this._activeUserService.get();
   }
 
   public deletePost() {
