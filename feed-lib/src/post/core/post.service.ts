@@ -20,6 +20,16 @@ export class ScrPostService {
         .toPromise();
     }
 
+    public delete(postId: string): Promise<ScrPost> {
+      const url: string = ScrFeedStore.postById(postId);
+
+      return this._httpClient.delete(url)
+        .pipe(
+          map(ScrPost.fromObject)
+        )
+        .toPromise();
+    }
+
     public getByUserId(userId: string): Promise<ScrPost[]> {
       const url: string = ScrFeedStore.postsByUser(userId);
 

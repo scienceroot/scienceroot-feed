@@ -9,6 +9,7 @@ export class ScrPost {
   public static fromObject(obj: any): ScrPost {
     return new ScrPost(
       ScrUser.fromObj(obj.creator),
+      obj.id,
       obj.content,
       obj.createdDate
     );
@@ -18,6 +19,7 @@ export class ScrPost {
 
   constructor(
     public creator: ScrUser,
+    public id?: string,
     public content?: string,
     public createdDate?: Date
   ) {

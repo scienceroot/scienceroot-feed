@@ -12,7 +12,8 @@ import {ScrFeedUserModule} from '@scienceroot/feed';
       {
         path: 'user-feed',
         component: UserFeedComponent,
-        canActivate: [ScrAuthenticationGuard]}
+        canActivate: [ScrAuthenticationGuard]
+      }
     ]),
     ScrFeedUserModule
   ],

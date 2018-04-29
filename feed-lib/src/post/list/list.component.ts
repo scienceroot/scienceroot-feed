@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {ScrPost} from '../core/post.model';
+import {ScrPostService} from '../core/post.service';
 
 @Component({
   selector: 'scr-post-list',
@@ -18,7 +19,8 @@ import {ScrPost} from '../core/post.model';
     <ng-template #list>
       <div>
         <ng-container *ngFor="let post of posts.reverse()">
-          <scr-post-list-item [post]="post">
+          <scr-post-list-item [post]="post"
+                              (onDelete)="onDelete($event)">
           </scr-post-list-item>
           <mat-divider></mat-divider>
         </ng-container>
@@ -32,4 +34,16 @@ import {ScrPost} from '../core/post.model';
 export class ScrPostListComponent {
 
   @Input() posts: ScrPost[];
+
+  constructor(private _postService: ScrPostService) {
+  }
+
+  public onDelete(toDelete: ScrPost) {
+    this._postService.delete(toDelete.id)
+      .then(() => this._removeDeletedPost(toDelete));
+  }
+
+  private _removeDeletedPost(deleted: ScrPost) {
+    this.posts = this.posts.filter(post => post.id !== deleted.id);
+  }
 }
