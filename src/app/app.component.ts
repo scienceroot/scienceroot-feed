@@ -13,6 +13,10 @@ import { Component } from '@angular/core';
             fxFlex="">
         <div  fxLayout="row"
               fxLayoutAlign="end center">
+          <div fxFlex="100px">
+            <scr-collection-feed-link>
+            </scr-collection-feed-link>
+          </div>
           <div fxFlex="150px">
             <scr-user-details-link>
             </scr-user-details-link>

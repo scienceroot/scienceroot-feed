@@ -15,6 +15,7 @@ import {ScrUserDetailsLinkModule, ScrUserStoreConfigModel} from '@scienceroot/us
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {UserFeedModule} from './user-feed/user-feed.module';
 import {CollectionFeedModule} from './collection-feed/collection-feed.module';
+import {ScrCollectionFeedLinkModule} from '../../feed-lib/src/feed/link/link.module';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import {CollectionFeedModule} from './collection-feed/collection-feed.module';
     ScrAuthenticationModule,
     ScrSecureHttpClientModule,
     ScrUserDetailsLinkModule,
+    ScrCollectionFeedLinkModule,
     PostModule,
     UserFeedModule,
     CollectionFeedModule
