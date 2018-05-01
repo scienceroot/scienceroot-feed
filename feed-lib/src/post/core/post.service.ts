@@ -39,4 +39,14 @@ export class ScrPostService {
         )
         .toPromise();
     }
+
+    public getFeed(userId: string): Promise<ScrPost[]> {
+      const url: string = ScrFeedStore.post();
+
+      return this._httpClient.get(url)
+        .pipe(
+          map(ScrPost.fromObjArr)
+        )
+        .toPromise();
+    }
 }
