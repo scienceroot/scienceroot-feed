@@ -16,6 +16,9 @@ cd feed-lib
 npm version ${NEXT_VERSION}
 cd ..
 
+git add feed-lib/package.json
+git commit -m "Set version $NEXT_VERSION"
+
 # STEP BUILD
 set -e  # terminates on error
 npm run build:lib
