@@ -1,6 +1,6 @@
 {
   "name": "@scienceroot/feed",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "ngPackage": {
     "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
     "dest": "../dist/feed-lib",
