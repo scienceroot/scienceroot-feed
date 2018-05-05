@@ -29,6 +29,7 @@ import {NavigationEnd, Router} from '@angular/router';
       cursor: pointer;
       height: 64px;
       outline: none;
+      color: #fff;
     }
 
     .link .content {
@@ -45,7 +46,7 @@ import {NavigationEnd, Router} from '@angular/router';
     .link .highlight-bar { 
       display: none;
       height: 4px;
-      background-color: #000;
+      background-color: #fff;
     }
     
     .link.active .highlight-bar { display: block; }

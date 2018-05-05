@@ -40,7 +40,7 @@ import { Component } from '@angular/core';
     .menu {
       padding: 0 24px;
       height: 64px;
-      background-color: #B1B7C1;
+      background-color: #0F0F1F;
     }
 
     .menu .menu-item.logo-container {
